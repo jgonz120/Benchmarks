@@ -85,6 +85,12 @@ namespace JsonParsingBenchmark
             return SearchResultJsonDocumentReader.Parse(clonedElement);
         }
 
+        [Benchmark(Description = "System.Text.Json with Utf8JsonReader streaming")]
+        public SearchResults SystemTextJsonUtf8JsonReaderStreamingg()
+        {
+            return Utf8JsonStreamingReader.Read(_inputFiles[InputFile]);
+        }
+
 
         [Benchmark(Description = "Newtonsoft.Json JsonSerializer")]
         public SearchResults NewtonsoftJson()
